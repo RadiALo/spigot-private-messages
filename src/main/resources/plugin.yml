@@ -1,0 +1,6 @@
+name: spigot-private-messages
+version: '${project.version}'
+main: org.radialo.spigotprivatemessages.PrivateMessagesPlugin
+api-version: '1.20'
+authors: [RadiALo]
+description: My plugin for private messages!
