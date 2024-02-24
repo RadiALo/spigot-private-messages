@@ -7,7 +7,17 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.Map;
+import java.util.UUID;
+
 public class MessageCommand implements CommandExecutor {
+
+    private final Map<UUID, UUID> recentMessages;
+
+    public MessageCommand(Map<UUID, UUID> recentMessages) {
+        this.recentMessages = recentMessages;
+    }
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
@@ -25,13 +35,15 @@ public class MessageCommand implements CommandExecutor {
                         messageBuilder.append(args[i]).append(" ");
                     }
 
-                    target.sendMessage(
-                            player.getName() + " -> You: " + messageBuilder
+                    String message = PrivateMessagesPlugin.formatMessage(
+                            player, target, messageBuilder.toString()
                     );
 
-                    player.sendMessage(
-                            "You -> " + target.getName() + ": " + messageBuilder
-                    );
+                    target.sendMessage(message);
+
+                    player.sendMessage(message);
+
+                    recentMessages.put(target.getUniqueId(), player.getUniqueId());;
                 } else {
                     player.sendMessage(ChatColor.RED + "Player was not found!");
                 }
