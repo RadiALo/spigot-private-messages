@@ -46,7 +46,7 @@ public class ReplyCommand implements CommandExecutor {
 
                     recentMessages.put(target.getUniqueId(), player.getUniqueId());;
                 } else {
-                    player.sendMessage(ChatColor.RED + "Player was not found!");
+                    player.sendMessage(ChatColor.RED + "Player offline!");
                 }
             } else {
                 player.sendMessage(ChatColor.RED + "No recent messages!");
