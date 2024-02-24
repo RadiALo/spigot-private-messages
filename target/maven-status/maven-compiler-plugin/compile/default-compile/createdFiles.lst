@@ -1,0 +1,3 @@
+org\radialo\spigotprivatemessages\PrivateMessagesPlugin.class
+org\radialo\spigotprivatemessages\ReplyCommand.class
+org\radialo\spigotprivatemessages\MessageCommand.class

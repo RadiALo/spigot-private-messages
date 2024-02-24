@@ -1,0 +1,11 @@
+name: spigot-private-messages
+version: '1.0-SNAPSHOT'
+main: org.radialo.spigotprivatemessages.PrivateMessagesPlugin
+api-version: '1.20'
+authors: [RadiALo]
+description: My plugin for private messages!
+commands:
+  message:
+    description: Allows you to send private message to another player!
+  reply:
+    description: Allows you to reply on private message from another player!
